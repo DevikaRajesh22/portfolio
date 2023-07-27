@@ -9,6 +9,7 @@
 
     <!-- =====BOX ICONS===== -->
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <title>Portfolio website complete</title>
 </head>
@@ -170,10 +171,12 @@
                     </div>
                     <div class="skills__data">
                         <div class="skills__names">
-                            <i class='bx bxs-paint skills__icon'></i>
-                            <span class="skills__name">Bootstrap</span>
+                            <i class='bx bxl-react' style="font-size: 2rem;
+                            margin-right: var(--mb-2);
+                            color: var(--first-color);"></i>
+                            <span class="skills__name">REACT</span>
                         </div>
-                        <div class="skills__bar skills__ux">
+                        <div class="skills__bar skills__react">
 
                         </div>
                         <div>
@@ -181,7 +184,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div>
                     <img src="assets/img/work3.jpg" alt="" class="skills__img">
                 </div>
@@ -211,10 +213,10 @@
 
             <div class="contact__container bd-grid">
                 <form action="" class="contact__form" id="submit-form">
-                    <input name="uname" type="text" placeholder="Name" class="contact__input">
-                    <input name="uemail" type="mail" placeholder="Email" class="contact__input">
-                    <textarea name="utext" name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                    <input type="button" value="Submit" class="contact__button button">
+                    <input name="name" type="text" placeholder="Name" class="contact__input">
+                    <input name="email" type="mail" placeholder="Email" class="contact__input">
+                    <textarea name="message" id="" cols="0" rows="10" placeholder="Message" class="contact__input"></textarea>
+                    <input type="submit" value="Submit" class="contact__button button">
                 </form>
             </div>
         </section>
@@ -240,6 +242,23 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
 	<script src="js/script.js"></script>
+    <script>
+        $("#submit-form").submit((e)=>{
+            e.preventDefault()
+            $.ajax({
+                url:"https://script.google.com/macros/s/AKfycbzkTTSk7ZLULyOZYC2JytBbB3oF06SLB4DE53Iv76O5BAmucKADJrzKd4oeQq1Vd74t/exec",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                },
+                error:function (err){
+                    alert("Something Error")
+    
+                }
+            })
+        })
+    </script>
 </body>
-
 </html>
